@@ -1,3 +1,4 @@
-# self-consistency-abi
+# sbi-self-consistency
 
-Code repository (in preparation) for the paper *Leveraging Self-Consistency for Data-Efficient Amortized Bayesian Inference* (ICML 2024).
+
+Leveraging Self-Consistency for Data-Efficient Amortized Bayesian Inference (ICML 2024; [https://openreview.net/forum?id=6wVlH96oMX](Link)).

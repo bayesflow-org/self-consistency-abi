@@ -1,0 +1,30 @@
+name: sc_sbi
+
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python==3.11
+  # DL and probprog
+  - cmdstanpy
+  - tensorflow
+  # notebooks
+  - jupyter
+  - jupyterlab
+  # other
+  - black
+  - pandas
+  # plotting
+  - matplotlib
+  - seaborn
+  - arviz
+  - tqdm
+  - pytest
+  # pip
+  - pip
+  - pip:
+      - tensorflow==2.15
+      - bayesflow
+    # - hydra-core
+    # - hydra-submitit-launcher
