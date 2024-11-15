@@ -1,7 +1,7 @@
 import bayesflow as bf
 import numpy as np
 import tensorflow as tf
-
+import tensorflow_probability as tfp
 from sc_abi.sc_simulation import PriorLogProb
 
 prior_dist = tfp.distributions.Independent(
@@ -9,14 +9,6 @@ prior_dist = tfp.distributions.Independent(
     reinterpreted_batch_ndims=1,
 )
 prior = PriorLogProb(prior_dist)
-
-generative_model = bf.simulation.GenerativeModel(
-    prior=prior,
-    simulator=two_moons.simulator,
-    prior_is_batched=True,
-    simulator_is_batched=False,
-)
-
 
 def get_amortizer_arguments():
     return {
@@ -108,3 +100,10 @@ def analytic_posterior_numpy(x_o, n_samples=1, rng=None):
         theta[i, 1] = s * q[0] + c * q[1]
 
     return theta.astype(np.float32)
+
+generative_model = bf.simulation.GenerativeModel(
+    prior=prior,
+    simulator=simulator_numpy,
+    prior_is_batched=True,
+    simulator_is_batched=False,
+)

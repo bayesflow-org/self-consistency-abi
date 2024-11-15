@@ -6,7 +6,7 @@ from typing import Callable
 
 import bayesflow as bf
 import tensorflow as tf
-
+from bayesflow import benchmarks # bf.benchmarks was giving errors, so directly importing it.
 from sc_abi.sc_amortizers import AmortizedPosteriorLikelihoodSC
 from sc_abi.sc_schedules import ZeroLinearOneSchedule, ZeroOneSchedule
 from tasks.two_moons import generative_model, get_amortizer_arguments, prior
@@ -65,7 +65,7 @@ def main(
         default_lr=lr,
         memory=False,
         checkpoint_path=CHECKPOINT_DIR / str(simulation_budget) / "nple" / str(run_id),
-        configurator=bf.benchmarks.Benchmark("two_moons", "joint").configurator,
+        configurator=benchmarks.Benchmark("two_moons", "joint").configurator,
         max_to_keep=1,
         save_checkpoint=False,
     )
